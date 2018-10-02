@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>com.acme.mavenmaster.cpp</groupId>
+    <artifactId>mavenmaster</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+  </parent>
+
+  <groupId>com.acme.mavenmaster.cpp.static</groupId>
+  <artifactId>mavenmaster</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>pom</packaging>
+
+  <build>
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <groupId>org.codehaus.mojo</groupId>
+          <artifactId>native-maven-plugin</artifactId>
+          <version>1.0-alpha-9</version>
+          <configuration>
+            <linkerProvider>ar</linkerProvider>
+            <linkerStartOptions>
+              <linkerStartOption>-r</linkerStartOption>
+            </linkerStartOptions>
+          </configuration>   <!-- ranlib the output of the linker, ie the static lib -->
+          <executions>
+            <execution>
+              <id>ranlib</id>
+              <phase>package</phase>
+            <goals>
+                <goal>ranlib</goal>
+              </goals>
+            </execution>
+          </executions>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+  </build>
+</project>
