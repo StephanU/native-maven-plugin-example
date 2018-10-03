@@ -22,7 +22,6 @@
           <artifactId>maven-clean-plugin</artifactId>
           <version>3.0.0</version>
         </plugin>
-        <!-- see http://maven.apache.org/ref/current/maven-core/default-bindings.html#Plugin_bindings_for_jar_packaging -->
         <plugin>
           <artifactId>maven-resources-plugin</artifactId>
           <version>3.0.2</version>
@@ -62,10 +61,9 @@
                   <include>**/*.cpp</include>
                 </includes>
               </source>
-                     <source>
+              <source>
                 <directory>src/main/cpp/header</directory>
-                <!-- use this to have maven deploying header files with a 
-                  .inzip type -->
+                <!-- use this to have maven deploying header files with a .inzip type -->
                 <!-- typically used to for library artifacts header files -->
                 <includes>
                   <include>**/*.hpp</include>
